@@ -1,0 +1,7 @@
+{
+  "IMAGE_NAME": "ollama",
+  "USER_NAME": "user",
+  "GPUS": "all",
+  "PORTS": ["11434:11434"],
+  "COMMAND": ["ollama", "serve"]
+}
