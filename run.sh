@@ -7,10 +7,12 @@ help() {
   cat <<EOF
 Usage:
   ./run.sh --docker <subcommand>
+  ./run.sh --download <all|datasets|models>
   ./run.sh --help
 
 Options:
   --docker         Run DockerManager commands (build, run, exec)
+  --download       Run ResourceFetcher to download resources
   --help, -h       Show this help message
 EOF
 }
@@ -28,6 +30,11 @@ docker() {
   python3 ./src/docker_manager.py "$@"
 }
 
+download() {
+  echo "[INFO] Invoking ResourceFetcher with command: $*"
+  python3 ./src/resource_fetcher.py "$@"
+}
+
 if [[ $# -eq 0 ]]; then
   help
   exit 0
@@ -36,6 +43,9 @@ fi
 case "$1" in
   --docker)
     docker "$@"
+    ;;
+  --download)
+    download "$@"
     ;;
   --help|-h)
     help

@@ -1,0 +1,9 @@
+{
+  "models": [
+    {
+      "name": "deepseek-coder-1.3b-instruct.Q4_K_M.gguf",
+      "repo_id": "TheBloke/deepseek-coder-1.3b-instruct-GGUF",
+      "filename": "deepseek-coder-1.3b-instruct.Q4_K_M.gguf"
+    }
+  ]
+}
