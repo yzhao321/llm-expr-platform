@@ -3,5 +3,11 @@
   "USER_NAME": "user",
   "GPUS": "all",
   "PORTS": ["11434:11434"],
-  "COMMAND": ["ollama", "serve"]
+  "COMMAND": ["ollama", "serve"],
+  "MOUNTS": [
+    {
+      "host_dir": "./downloads/models",
+      "container_dir": "/models"
+    }
+  ]
 }

@@ -106,6 +106,7 @@ class DockerManager:
 
         ports = self.config.get("PORTS", [])
         gpus = self.config.get("GPUS", None)
+        mounts = self.config.get("MOUNTS", [])
         command = self.config.get("COMMAND", ["bash"])
 
         cmd = ["docker", "run", "-dit", "--name", container_name, "-e", f"USER_NAME={user_name}"]
@@ -113,6 +114,14 @@ class DockerManager:
             cmd.extend(["--gpus", gpus])
         for p in ports:
             cmd.extend(["-p", p])
+        for m in mounts:
+            host_dir = Path(m["host_dir"]).resolve()
+            if not host_dir.is_dir():
+                print(f"[ERROR] Host directory does not exist: {host_dir}")
+                sys.exit(1)
+            container_dir = m["container_dir"]
+            mount_spec = f"type=bind,source={host_dir},target={container_dir}"
+            cmd.extend(["--mount", mount_spec])
 
         cmd.append(image_name_tag)
         cmd.extend(command)
