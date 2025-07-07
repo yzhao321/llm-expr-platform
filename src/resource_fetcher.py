@@ -91,16 +91,19 @@ class ResourceFetcher:
                 print(f"[WARNING] Skipping {name}: missing repo_id or filename")
                 continue
 
-            target_path = self.output_dir / "models" / name
-            if target_path.exists():
-                print(f"[SKIP] {name} already exists at {target_path}")
+            target_folder = self.output_dir / "models" / name
+            target_folder.mkdir(parents=True, exist_ok=True)
+            target_file_path = target_folder / filename
+
+            if target_file_path.exists():
+                print(f"[SKIP] {name} already exists at {target_file_path}")
                 continue
 
             print(f"\n[MODEL] {name}")
             print(f"  Repo ID : {repo_id}")
             print(f"  File    : {filename}")
 
-            self._download_hf_file(repo_id, filename, target_path)
+            self._download_hf_file(repo_id, filename, target_file_path)
 
 
 if __name__ == "__main__":

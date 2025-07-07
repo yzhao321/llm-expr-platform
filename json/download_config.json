@@ -1,9 +1,9 @@
 {
   "models": [
     {
-      "name": "deepseek-coder-1.3b-instruct.Q4_K_M.gguf",
-      "repo_id": "TheBloke/deepseek-coder-1.3b-instruct-GGUF",
-      "filename": "deepseek-coder-1.3b-instruct.Q4_K_M.gguf"
+      "name": "deepseek-r1:1.5b",
+      "repo_id": "bartowski/DeepSeek-R1-Distill-Qwen-1.5B-GGUF",
+      "filename": "DeepSeek-R1-Distill-Qwen-1.5B-Q4_K_M.gguf"
     }
   ]
 }
