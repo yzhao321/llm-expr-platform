@@ -15,7 +15,7 @@ This repository provides an infrastructure automation script for managing Docker
 
 ## Usage
 
-### Download
+### Download (Optional)
 
 #### 1️⃣ Update the Configuration JSON File
 Edit the `json/download_config.json` file to specify the resources you want to fetch.
