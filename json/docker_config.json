@@ -6,8 +6,8 @@
   "COMMAND": ["ollama", "serve"],
   "MOUNTS": [
     {
-      "host_dir": "./downloads/models",
-      "container_dir": "/models"
+      "host_dir": "./src",
+      "container_dir": "/scripts"
     }
   ]
 }
