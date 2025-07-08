@@ -16,7 +16,15 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     lsb-release \
     curl \
+    python3 \
+    python3-pip \
  && rm -rf /var/lib/apt/lists/*
+
+# Install some standard Python packages for llm simulation
+RUN pip3 install --no-cache-dir \
+    numpy \
+    pandas \
+    datasets
 
 # Install Ollama using the official install script
 RUN curl -fsSL https://ollama.com/install.sh | sh
